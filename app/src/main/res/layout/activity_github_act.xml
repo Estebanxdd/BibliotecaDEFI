@@ -8,13 +8,14 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="299dp"
-        android:layout_height="241dp"
+        android:layout_width="155dp"
+        android:layout_height="153dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.295"
+        app:layout_constraintVertical_bias="0.185"
         app:srcCompat="@drawable/github" />
 
     <TextView
@@ -41,7 +42,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.205" />
+        app:layout_constraintVertical_bias="0.07" />
 
     <TextView
         android:id="@+id/resp"
@@ -53,5 +54,46 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spi"
-        app:layout_constraintVertical_bias="0.795" />
+        app:layout_constraintVertical_bias="0.99" />
+
+    <Button
+        android:id="@+id/env"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:onClick="Mostrar"
+        android:text="Enviar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resp"
+        app:layout_constraintVertical_bias="0.774" />
+
+    <LinearLayout
+        android:layout_width="341dp"
+        android:layout_height="84dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/resp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spi">
+
+        <EditText
+            android:id="@+id/txstock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Stock" />
+
+        <EditText
+            android:id="@+id/txprecio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Precio" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

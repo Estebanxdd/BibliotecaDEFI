@@ -1,81 +1,102 @@
 package chile.maps.biblioteca;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Github_act extends AppCompatActivity {
 
 
     private Spinner spLibro;
     private TextView txtRespuesta;
-    private String[] precios = new String[]{"5000", "12000", "45000"};
-
+    private EditText txtStock;
+    private EditText txtPrecio;
+    private String[] preciosLibro = new String[]{"7000", "22000", "45000","88000","156000"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_github_act);
 
-
-        spLibro = (Spinner)findViewById(R.id.spi);
-        txtRespuesta = (TextView)findViewById(R.id.resp);
-
-
-        Bundle dat = getIntent().getExtras();
-        String[] lista = dat.getStringArray("github");
-
-
-        ArrayAdapter adapt = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, lista);
-
-        spLibro.setAdapter(adapt);
+        spLibro = (Spinner) findViewById(R.id.spn);
+        txtRespuesta = (TextView) findViewById(R.id.result);
+        txtStock = (EditText) findViewById(R.id.txstock);
+        txtPrecio = (EditText) findViewById(R.id.txprecio);
 
     }
 
-    public void Calcular(View v)
-    {
-        if(spLibro.getSelectedItem().equals("Farenheit"))
-        {
-            String precio = precios[0];
+    public void Mostrar(View v) {
+        if (spLibro.getSelectedItem().equals("Farenheit")) {
+            String precio = preciosLibro[0];
+            int st = Integer.parseInt(txtStock.getText().toString());
+            int cp = Integer.parseInt(txtPrecio.getText().toString());
+            int pc = Integer.parseInt(precio);
+            int resultado = pc * st + cp;
 
-            int costo = Integer.parseInt(txtRespuesta.getText().toString());
-            int precioLibro = Integer.parseInt(precio);
-            int resultado = precioLibro  ;
-
-            txtRespuesta.setText( "Precio final: "+ resultado);
+            txtRespuesta.setText("Stock disponible: " + st + "\n"
+                    + "Precio final: " + resultado);
         }
 
-        if(spLibro.getSelectedItem().equals("Revival"))
-        {
-            String precioRevival = precios[1];
+        if (spLibro.getSelectedItem().equals("Revival")) {
+            String precioRevival = preciosLibro[1];
 
-
-            int costo = Integer.parseInt(txtRespuesta.getText().toString());
+            int stock = Integer.parseInt(txtStock.getText().toString());
+            int costo = Integer.parseInt(txtPrecio.getText().toString());
             int precioLibro = Integer.parseInt(precioRevival);
 
-            int resultado = precioLibro;
+            int resultado = precioLibro * stock + costo;
 
-            txtRespuesta.setText("el precio final es: "+ resultado);
+            txtRespuesta.setText("Stock disponible: " + stock + "\n"
+                    + "el precio final es: " + resultado);
         }
 
-        if(spLibro.getSelectedItem().equals("El Alquimista"))
-        {
+        if (spLibro.getSelectedItem().equals("El Alquimista")) {
 
-            String precioTesla = precios[2];
+            String precioTesla = preciosLibro[2];
 
-
+            int stock = Integer.parseInt(txtStock.getText().toString());
             int costo = Integer.parseInt(txtRespuesta.getText().toString());
             int precioLibro = Integer.parseInt(precioTesla);
 
-            int resultado = precioLibro;
+            int resultado = precioLibro * stock + costo;
 
-            txtRespuesta.setText("el precio final es: "+ resultado);
+            txtRespuesta.setText("Stock disponible: " + stock + "\n"
+                    + "el precio final es: " + resultado);
+        }
+
+        if (spLibro.getSelectedItem().equals("El Podera")) {
+
+            String precioTesla = preciosLibro[3];
+
+            int stock = Integer.parseInt(txtStock.getText().toString());
+            int costo = Integer.parseInt(txtRespuesta.getText().toString());
+            int precioLibro = Integer.parseInt(precioTesla);
+
+            int resultado = precioLibro * stock + costo;
+
+            txtRespuesta.setText("Stock disponible: " + stock + "\n"
+                    + "el precio final es: " + resultado);
+        }
+
+        if (spLibro.getSelectedItem().equals("Despertar")) {
+
+            String precioTesla = preciosLibro[4];
+
+            int stock = Integer.parseInt(txtStock.getText().toString());
+            int costo = Integer.parseInt(txtRespuesta.getText().toString());
+            int precioLibro = Integer.parseInt(precioTesla);
+
+            int resultado = precioLibro * stock + costo;
+
+            txtRespuesta.setText("Stock disponible: " + stock + "\n"
+                    + "el precio final es: " + resultado);
         }
     }
+
 
 }
